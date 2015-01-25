@@ -23,15 +23,29 @@
 #ifndef RENDERERCONNECTIONS_H_
 #define RENDERERCONNECTIONS_H_
 
+#include <QtGlobal>
 #include <HUpnpCore/HUpnp>
 #include <HUpnpAv/HRendererConnection>
 
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
 #include <phonon/MediaObject>
 #include <phonon/VideoWidget>
+#else
+#include <QtMultimedia/QMediaObject>
+#include <QtMultimediaWidgets/QVideoWidget>
+#include <QtMultimedia/QMediaContent>
+#include <QtMultimedia/QMediaPlayer>
+#endif
 
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
 #include <QtGui/QLabel>
 #include <QtGui/QWidget>
 #include <QtGui/QPixmap>
+#else
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QWidget>
+#include <QtGui/QPixmap>
+#endif
 
 #include <QtCore/QPointer>
 #include <QtCore/QScopedPointer>
@@ -144,10 +158,15 @@ Q_OBJECT
 Q_DISABLE_COPY(DefaultRendererConnection)
 
 private:
-
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
     Phonon::MediaObject m_mediaObject;
     QScopedPointer<Phonon::MediaSource> m_mediaSource;
     Phonon::VideoWidget* m_videoWidget;
+#else
+    QMediaPlayer m_mediaObject;
+    QScopedPointer<QMediaContent> m_mediaSource;
+    QVideoWidget* m_videoWidget;
+#endif
 
 private:
 
@@ -156,7 +175,13 @@ private:
 private Q_SLOTS:
 
     void hasVideoChanged(bool);
+#ifdef QT4_BUILD
     void stateChanged(Phonon::State newstate, Phonon::State oldstate);
+#endif
+#ifdef QT5_BUILD
+    void stateChanged(QMediaPlayer::State newstate);
+#endif
+
     void tick(qint64 time);
     void totalTimeChanged(qint64 time);
 

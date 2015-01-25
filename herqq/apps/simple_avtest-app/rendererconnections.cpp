@@ -27,8 +27,14 @@
 #include <HUpnpAv/HMediaInfo>
 #include <HUpnpAv/HTransportState>
 
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
 #include <phonon/VideoWidget>
 #include <phonon/AudioOutput>
+#else
+#include <QtMultimediaWidgets/QVideoWidget>
+#include <QtMultimedia/QAudioOutput>
+#include <QtMultimedia/QMediaPlaylist>
+#endif
 
 #include <QtCore/QUrl>
 #include <QtCore/QTime>
@@ -36,8 +42,13 @@
 #include <QtCore/QBuffer>
 
 #include <QtGui/QPixmap>
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
 #include <QtGui/QTextEdit>
 #include <QtGui/QVBoxLayout>
+#else
+#include <QtWidgets/QTextEdit>
+#include <QtWidgets/QVBoxLayout>
+#endif
 #include <QtGui/QResizeEvent>
 
 #include <QtNetwork/QNetworkReply>
@@ -46,7 +57,9 @@
 using namespace Herqq::Upnp;
 using namespace Herqq::Upnp::Av;
 
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
 using namespace Phonon;
+#endif
 
 /*******************************************************************************
  * CustomRendererConnection
@@ -223,39 +236,74 @@ DefaultRendererConnection::DefaultRendererConnection(ContentType ct, QWidget* pa
     CustomRendererConnection(parent),
         m_mediaObject(parent), m_mediaSource(0), m_videoWidget(0)
 {
+#ifdef QT4_BUILD
     bool ok = connect(
         &m_mediaObject,
         SIGNAL(stateChanged(Phonon::State, Phonon::State)),
         this,
-        SLOT(stateChanged(Phonon::State, Phonon::State)));
+        SLOT(stateChanged(Phonon::State,Phonon::State)));
+#endif
+
+#ifdef QT5_BUILD
+    bool ok = connect(
+        &m_mediaObject,
+        SIGNAL(stateChanged(QMediaPlayer::State)),
+        this,
+        SLOT(stateChanged(QMediaPlayer::State)));
+#endif
 
     Q_ASSERT(ok); Q_UNUSED(ok)
 
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
     ok = connect(
         &m_mediaObject,
         SIGNAL(tick(qint64)),
         this,
         SLOT(tick(qint64)));
+#else
+    ok = connect(
+        &m_mediaObject,
+        SIGNAL(durationChanged(qint64)),
+        this,
+        SLOT(tick(qint64)));
+#endif
 
     Q_ASSERT(ok); Q_UNUSED(ok)
 
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
     ok = connect(
         &m_mediaObject,
         SIGNAL(totalTimeChanged(qint64)),
         this,
         SLOT(totalTimeChanged(qint64)));
+#else
+    ok = connect(
+        &m_mediaObject,
+        SIGNAL(durationChanged(qint64)),
+        this,
+        SLOT(totalTimeChanged(qint64)));
+#endif
 
     Q_ASSERT(ok); Q_UNUSED(ok)
 
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
     m_mediaObject.setTickInterval(1000);
+#else
+#endif
 
     if (ct == AudioVideo)
     {
         setupVideo();
     }
 
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
     AudioOutput* audioOutput = new AudioOutput(VideoCategory, parent);
     createPath(&m_mediaObject, audioOutput);
+#else
+    QAudioOutput*  audioOutput = new QAudioOutput();
+    audioOutput->setParent(parent);
+#endif
+
 }
 
 DefaultRendererConnection::~DefaultRendererConnection()
@@ -265,13 +313,18 @@ DefaultRendererConnection::~DefaultRendererConnection()
 void DefaultRendererConnection::setupVideo()
 {
     QWidget* parentWidget = static_cast<QWidget*>(parent());
-
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
     m_videoWidget = new VideoWidget(parentWidget);
+#else
+    m_videoWidget = new QVideoWidget(parentWidget);
+#endif
     m_videoWidget->setMinimumSize(200, 200);
     m_videoWidget->setSizePolicy(
         QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
 
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
     createPath(&m_mediaObject, m_videoWidget);
+#endif
 
     parentWidget->layout()->addWidget(m_videoWidget);
 }
@@ -292,6 +345,7 @@ void DefaultRendererConnection::totalTimeChanged(qint64 time)
     writableRendererConnectionInfo()->setCurrentTrackDuration(duration);
 }
 
+#ifdef QT4_BUILD
 void DefaultRendererConnection::stateChanged(
     Phonon::State newstate, Phonon::State oldstate)
 {
@@ -351,6 +405,54 @@ void DefaultRendererConnection::stateChanged(
         break;
     }
 }
+#endif
+
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
+void DefaultRendererConnection::stateChanged(
+    QMediaPlayer::State newstate
+        )
+{
+    switch(newstate)
+    {
+    case QMediaPlayer::PlayingState:
+        if (m_mediaObject.position() == m_mediaObject.duration())
+        {
+            if (m_mediaObject.isSeekable())
+            {
+                m_mediaObject.setPosition(0);
+            }
+            m_mediaObject.play();
+        }
+        writableRendererConnectionInfo()->setTransportState(HTransportState::Playing);
+        break;
+
+    case QMediaPlayer::StoppedState:
+        if (m_mediaObject.isSeekable())
+        {
+            m_mediaObject.setPosition(0);
+        }
+        writableRendererConnectionInfo()->setTransportState(HTransportState::Stopped);
+        break;
+
+    case QMediaPlayer::PausedState:
+        if (m_mediaObject.position() == m_mediaObject.duration())
+        {
+            if (m_mediaObject.isSeekable())
+            {
+                m_mediaObject.setPosition(0);
+            }
+        }
+
+        writableRendererConnectionInfo()->setTransportState(HTransportState::PausedPlayback);
+        break;
+
+    default:
+        m_mediaObject.play();
+        break;
+    }
+}
+#endif
+
 
 qint32 DefaultRendererConnection::doPlay(const QString& arg)
 {
@@ -363,11 +465,19 @@ qint32 DefaultRendererConnection::doPlay(const QString& arg)
     case HTransportState::PausedPlayback:
     case HTransportState::Stopped:
     case HTransportState::Transitioning:
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
         if (m_mediaObject.currentTime() == m_mediaObject.totalTime())
+#else
+        if (m_mediaObject.position() == m_mediaObject.duration())
+#endif
         {
             if (m_mediaObject.isSeekable())
             {
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
                 m_mediaObject.seek(0);
+#else
+                m_mediaObject.setPosition(0);
+#endif
             }
         }
         m_mediaObject.play();
@@ -417,15 +527,30 @@ qint32 DefaultRendererConnection::doSetResource(
 
     if (m_mediaSource)
     {
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
         m_mediaObject.clear();
+#else
+        m_mediaObject.stop();
+        if(m_mediaObject.playlist())
+            m_mediaObject.playlist()->clear();
+#endif
     }
 
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
     m_mediaSource.reset(new MediaSource(resourceUri));
     m_mediaObject.setCurrentSource(*m_mediaSource);
+#else
+    m_mediaSource.reset(new QMediaContent(resourceUri));
+    m_mediaObject.setMedia(*m_mediaSource);
+#endif
 
     if (!m_videoWidget)
     {
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
         if (m_mediaObject.hasVideo())
+#else
+        if (m_mediaObject.isVideoAvailable())
+#endif
         {
             setupVideo();
             m_videoWidget->show();
@@ -433,7 +558,11 @@ qint32 DefaultRendererConnection::doSetResource(
         else
         {
             bool ok = connect(
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
                 &m_mediaObject, SIGNAL(hasVideoChanged(bool)),
+#else
+                &m_mediaObject, SIGNAL(videoAvailableChanged(bool)),
+#endif
                 this, SLOT(hasVideoChanged(bool)));
             Q_ASSERT(ok); Q_UNUSED(ok)
         }
@@ -451,7 +580,11 @@ qint32 DefaultRendererConnection::doSelectPreset(const QString&)
 
 void DefaultRendererConnection::hasVideoChanged(bool b)
 {
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
     if (!m_videoWidget && b && m_mediaObject.hasVideo())
+#else
+    if (!m_videoWidget && b && m_mediaObject.isVideoAvailable())
+#endif
     {
         setupVideo();
         m_videoWidget->show();

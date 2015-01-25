@@ -77,6 +77,8 @@ MediaManagerDialog::MediaManagerDialog(
 
     Q_ASSERT(ok);
 
+    Q_UNUSED(ok);
+
     populateRenderersList();
     populateItemsList();
 }

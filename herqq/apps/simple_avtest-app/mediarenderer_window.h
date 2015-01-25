@@ -26,7 +26,12 @@
 #include <HUpnpCore/HDeviceHost>
 #include <HUpnpAv/HRendererConnectionManager>
 
+#include <QtGlobal>
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
 #include <QtGui/QMainWindow>
+#else
+#include <QtWidgets/QMainWindow>
+#endif
 
 class QNetworkAccessManager;
 

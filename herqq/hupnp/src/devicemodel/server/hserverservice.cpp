@@ -180,8 +180,11 @@ HServerService::HActionInvokes HServerService::createActionInvokes()
         {
             continue;
         }
-
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
         QString signature = mm.signature();
+#else
+        QString signature = mm.methodSignature();
+#endif
         signature = signature.left(signature.indexOf('('));
 
         Q_ASSERT(!retVal.contains(signature));

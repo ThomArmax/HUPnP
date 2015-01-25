@@ -27,7 +27,12 @@
 
 #include <HUpnpAv/HUpnpAv>
 
+#include <QtGlobal>
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
 #include <QtGui/QWidget>
+#else
+#include <QtWidgets/QWidget>
+#endif
 #include <QtCore/QPointer>
 
 namespace Ui {

@@ -1,7 +1,18 @@
 TEMPLATE = app
 TARGET   = HUpnpAvSimpleTestApp
-QT      += network testlib xml phonon
+QT      += network testlib xml
 CONFIG  += warn_on
+
+equals(QT_MAJOR_VERSION, 5){
+    message("Build $$TARGET fot Qt5")
+    QT += gui widgets multimedia multimediawidgets
+    DEFINES += QT5_BUILD
+}
+equals(QT_MAJOR_VERSION, 4) {
+    message("Build $$TARGET fot Qt4")
+    QT += gui phonon
+    DEFINES += QT4_BUILD
+}
 
 INCLUDEPATH += \
     ../../hupnp/include/ \

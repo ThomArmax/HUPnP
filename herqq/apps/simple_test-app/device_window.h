@@ -23,11 +23,17 @@
 #ifndef DEVICE_WINDOW_H
 #define DEVICE_WINDOW_H
 
+#include <QtGlobal>
+
 #include <HUpnpCore/HUpnp>
 #include <HUpnpCore/HServerDevice>
 #include <HUpnpCore/HServerService>
 
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
 #include <QtGui/QMainWindow>
+#else
+#include <QtWidgets/QMainWindow>
+#endif
 
 namespace Ui {
     class DeviceWindow;

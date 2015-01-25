@@ -42,8 +42,14 @@ bool DeviceHostDataRetriever::retrieveServiceDescription(
     const QUrl& /*deviceLocation*/, const QUrl& scpdUrl, QString* retVal)
 {
     HLOG2(H_AT, H_FUN, m_loggingIdentifier);
+    QString localScpdPath;
 
-    QString localScpdPath = scpdUrl.toLocalFile();
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
+    localScpdPath = scpdUrl.toLocalFile();
+#else
+    localScpdPath = scpdUrl.toString();
+#endif
+
     if (localScpdPath.startsWith('/'))
     {
         localScpdPath = localScpdPath.mid(1);

@@ -26,6 +26,7 @@
 
 #include <QtTest>
 #include <QtDebug>
+
 #include <QApplication>
 
 int main(int argc, char* argv[])

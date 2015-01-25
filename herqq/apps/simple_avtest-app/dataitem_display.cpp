@@ -113,7 +113,11 @@ void DataItemDisplay::NavItemVisitor::visit(RendererItem* item)
                     locations.at(i).toString()).split(",")));
     }
 
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
     m_owner->reset();
+#else
+    m_owner->resetInternalData();
+#endif
 }
 
 void DataItemDisplay::NavItemVisitor::visit(ConnectionItem* item)
@@ -144,7 +148,11 @@ void DataItemDisplay::NavItemVisitor::visit(ConnectionItem* item)
         new DisplayDataRow(QString("Status,%1").arg(
             HConnectionManagerInfo::statusToString(info.status())).split(",")));
 
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
     m_owner->reset();
+#else
+    m_owner->resetInternalData();
+#endif
 }
 
 void DataItemDisplay::NavItemVisitor::visit(CdsContainerItem* item)
@@ -185,7 +193,11 @@ void DataItemDisplay::NavItemVisitor::visit(CdsContainerItem* item)
                 DisplayDataRow::CdsItem));
     }
 
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
     m_owner->reset();
+#else
+    m_owner->resetInternalData();
+#endif
 }
 
 void DataItemDisplay::NavItemVisitor::visit(ContentDirectoryItem* item)
@@ -232,7 +244,11 @@ void DataItemDisplay::NavItemVisitor::visit(ContentDirectoryItem* item)
                     locations.at(i).toString()).split(",")));
     }
 
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
     m_owner->reset();
+#else
+    m_owner->resetInternalData();
+#endif
 }
 
 DataItemDisplay::DataItemDisplay(QObject* parent) :
@@ -268,7 +284,11 @@ void DataItemDisplay::deviceRemoved(const Herqq::Upnp::HUdn& udn)
     if (udn == m_rootDeviceUdn)
     {
         clearModel();
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
         reset();
+#else
+    resetInternalData();
+#endif
     }
 }
 

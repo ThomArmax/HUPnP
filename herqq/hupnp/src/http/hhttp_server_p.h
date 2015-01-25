@@ -72,7 +72,11 @@ private:
         HHttpServer* m_owner;
 
     protected:
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
         virtual void incomingConnection(qint32 socketDescriptor);
+#else
+        virtual void incomingConnection(qintptr socketDescriptor);
+#endif
 
     public:
         Server(HHttpServer* owner);

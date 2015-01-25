@@ -54,7 +54,11 @@ HHttpServer::Server::Server(HHttpServer* owner) :
 {
 }
 
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
 void HHttpServer::Server::incomingConnection(qint32 socketDescriptor)
+#else
+void HHttpServer::Server::incomingConnection(qintptr socketDescriptor)
+#endif
 {
     m_owner->processRequest(socketDescriptor);
 }

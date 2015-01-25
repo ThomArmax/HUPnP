@@ -59,7 +59,11 @@ void DataItemDisplay::NavItemVisitor::visit(ActionItem* item)
         rootDevice()->info().udn();
 
     m_owner->m_modelData.clear();
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
     m_owner->reset();
+#else
+    m_owner->resetInternalData();
+#endif
 
     m_owner->m_modelData.push_back(qMakePair(
         QString("Name"), action->info().name()));
@@ -76,7 +80,11 @@ void DataItemDisplay::NavItemVisitor::visit(ActionItem* item)
         QString("Return argument name"),
         action->info().returnArgumentName()));
 
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
     m_owner->reset();
+#else
+    m_owner->resetInternalData();
+#endif
 }
 
 void DataItemDisplay::NavItemVisitor::visit(ServiceItem* item)
@@ -104,7 +112,11 @@ void DataItemDisplay::NavItemVisitor::visit(ServiceItem* item)
     m_owner->m_modelData.push_back(qMakePair(
         QString("Control URL"), service->info().controlUrl().toString()));
 
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
     m_owner->reset();
+#else
+    m_owner->resetInternalData();
+#endif
 }
 
 void DataItemDisplay::NavItemVisitor::visit(DeviceItem* item)
@@ -142,7 +154,11 @@ void DataItemDisplay::NavItemVisitor::visit(DeviceItem* item)
                 locations.at(i).toString()));
     }
 
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
     m_owner->reset();
+#else
+    m_owner->resetInternalData();
+#endif
 }
 
 void DataItemDisplay::NavItemVisitor::visit(StateVariableItem* item)
@@ -180,7 +196,11 @@ void DataItemDisplay::NavItemVisitor::visit(StateVariableItem* item)
     m_owner->m_modelData.push_back(
         qMakePair(QString("Allowed values"), stateVar->info().allowedValueList().join(";")));
 
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
     m_owner->reset();
+#else
+    m_owner->resetInternalData();
+#endif
 }
 
 DataItemDisplay::DataItemDisplay(QObject* parent) :
@@ -203,7 +223,11 @@ void DataItemDisplay::deviceRemoved(const Herqq::Upnp::HUdn& udn)
     if (udn == m_rootDeviceUdn)
     {
         m_modelData.clear();
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
         reset();
+#else
+        resetInternalData();
+#endif
     }
 }
 
