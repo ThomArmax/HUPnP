@@ -22,6 +22,8 @@
 #include "hdeviceinfo.h"
 #include "hdeviceinfo_p.h"
 
+#include <QScopedPointer>
+
 namespace Herqq
 {
 
