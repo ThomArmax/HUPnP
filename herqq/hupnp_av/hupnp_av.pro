@@ -60,4 +60,4 @@ private_headers.path = $$INSTLOC_INC/private
 
 target.path = $$INSTLOC_LIB
 
-INSTALLS += includes public_headers private_headers target
+INSTALLS += includes public_headers target
