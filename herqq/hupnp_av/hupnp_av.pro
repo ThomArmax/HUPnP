@@ -11,15 +11,9 @@ exists(options.pri) {
 }
 
 INCLUDEPATH += ./include/
+INCLUDEPATH += ../hupnp/include
 
-isEmpty(PREFIX) {
-    INCLUDEPATH += ../hupnp/include
-    LIBS += -L"./../hupnp/bin/" -lHUpnp
-}
-else {
-    INCLUDEPATH += $$PREFIX/include/HUpnpCore/
-    LIBS += -L"$$PREFIX/lib" -lHUpnp
-}
+LIBS += -L"./../hupnp/bin/" -lHUpnp
 
 OBJECTS_DIR = obj
 DESTDIR     = ./bin
