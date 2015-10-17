@@ -35,7 +35,11 @@ win32 {
     QMAKE_POST_LINK += copy ..\\..\\hupnp\\bin\\* bin /Y
 }
 else {
-    LIBS += -lQtSolutions_SOAP-2.7
+    !CONFIG(DISABLE_QTSOAP) {
+         include(../../hupnp/lib/qtsoap-2.7-opensource/src/qtsoap.pri)
+    } else {
+        LIBS += -lQtSolutions_SOAP-2.7
+    }
     !macx:QMAKE_LFLAGS += -Wl,--rpath=\\\$\$ORIGIN
 
     QMAKE_POST_LINK += cp -Rf $$PWD/descriptions bin &

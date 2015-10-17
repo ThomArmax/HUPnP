@@ -1,3 +1,5 @@
+!CONFIG(DISABLE_QTSOAP):include(lib/qtsoap-2.7-opensource/src/qtsoap.pri)
+
 TEMPLATE = lib
 TARGET   = HUpnp
 QT      += network xml
@@ -36,7 +38,12 @@ win32 {
     TARGET_EXT = .dll
 }
 else {
-    LIBS += -lQtSolutions_SOAP-2.7
+    !CONFIG(DISABLE_QTSOAP) {
+        LIBS += -l$$QTSOAP_LIBNAME
+    }
+    else {
+        LIBS += -lQtSolutions_SOAP-2.7
+    }
 }
 
 OBJECTS_DIR = obj
