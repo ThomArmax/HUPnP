@@ -34,6 +34,7 @@
 
 #include <QtCore/QMutex>
 #include <QtCore/QXmlStreamWriter>
+#include <QtCore/QUrl>
 
 /*!
  * \defgroup hupnp_av_cds_objects CDS Object Model
@@ -209,6 +210,7 @@ HObjectPrivate::HObjectPrivate(const QString& clazz, HObject::CdsType cdsType) :
     insert(inst.get(HCdsProperties::dlite_res));
     insert(inst.get(HCdsProperties::upnp_writeStatus));
     insert(inst.get(HCdsProperties::upnp_objectUpdateID).name(), 0U);
+    insert(inst.get(HCdsProperties::upnp_icon));
 }
 
 HObjectPrivate::~HObjectPrivate()
@@ -531,6 +533,14 @@ HObject::WriteStatus HObject::writeStatus() const
     return value.value<WriteStatus>();
 }
 
+QUrl HObject::icon() const
+{
+    QVariant value;
+    bool b = getCdsProperty(HCdsProperties::upnp_icon, &value);
+    Q_ASSERT(b); Q_UNUSED(b)
+    return value.toUrl();
+}
+
 QString HObject::creator() const
 {
     QVariant value;
@@ -613,6 +623,12 @@ void HObject::setResources(const QList<HResource>& arg)
 void HObject::setWriteStatus(WriteStatus arg)
 {
     bool b = setCdsProperty(HCdsProperties::upnp_writeStatus, QVariant::fromValue(arg));
+    Q_ASSERT(b); Q_UNUSED(b)
+}
+
+void HObject::setIcon(const QUrl &arg)
+{
+    bool b = setCdsProperty(HCdsProperties::upnp_icon, arg);
     Q_ASSERT(b); Q_UNUSED(b)
 }
 

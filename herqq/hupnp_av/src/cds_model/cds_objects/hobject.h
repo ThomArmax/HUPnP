@@ -806,6 +806,15 @@ public:
     WriteStatus writeStatus() const;
 
     /*!
+     * \brief Returns the object's icon
+     *
+     * \return the object's icon
+     *
+     * \sa setIcon()
+     */
+    QUrl icon() const;
+
+    /*!
      * \brief Returns the creator of this object.
      *
      * \return The creator of this object.
@@ -950,6 +959,15 @@ public:
      * \sa writeStatus()
      */
     void setWriteStatus(WriteStatus arg);
+
+    /*!
+     * \brief Sets the object's icon
+     *
+     * \param arg the object's icon
+     *
+     * \sa icon()
+     */
+    void setIcon(const QUrl& arg);
 
     /*!
      * Statically casts the object to HContainer, if it is derived from it.
