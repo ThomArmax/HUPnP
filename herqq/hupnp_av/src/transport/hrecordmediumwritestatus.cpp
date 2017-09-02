@@ -81,23 +81,23 @@ HRecordMediumWriteStatus::Type HRecordMediumWriteStatus::fromString(
     const QString& type)
 {
     Type retVal = Unknown;
-    if (type.compare("WRITABLE", Qt::CaseInsensitive) == 0)
+    if (type.compare(QString("WRITABLE"), Qt::CaseInsensitive) == 0)
     {
         retVal = Writable;
     }
-    else if (type.compare("PROTECTED", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("PROTECTED"), Qt::CaseInsensitive) == 0)
     {
         retVal = Protected;
     }
-    else if (type.compare("NOT_WRITABLE", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("NOT_WRITABLE"), Qt::CaseInsensitive) == 0)
     {
         retVal = NotWritable;
     }
-    else if (type.compare("NOT_IMPLEMENTED", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("NOT_IMPLEMENTED"), Qt::CaseInsensitive) == 0)
     {
         retVal = NotImplemented;
     }
-    else if (type.compare("UNKNOWN", Qt::CaseInsensitive) != 0 && !type.isEmpty())
+    else if (type.compare(QString("UNKNOWN"), Qt::CaseInsensitive) != 0 && !type.isEmpty())
     {
         retVal = VendorDefined;
     }

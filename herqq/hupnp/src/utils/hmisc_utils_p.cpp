@@ -70,10 +70,10 @@ bool toBool(const QString& arg, bool* ok)
     bool retVal = false, match = true;
     if (arg == "1") { retVal = true; }
     else if (arg == "0") { retVal = false; }
-    else if (arg.compare("true", Qt::CaseInsensitive) == 0) { retVal = true; }
-    else if (arg.compare("false", Qt::CaseInsensitive) == 0) { retVal =  false; }
-    else if (arg.compare("yes", Qt::CaseInsensitive) == 0) { retVal = true; }
-    else if (arg.compare("no", Qt::CaseInsensitive) == 0) { retVal = false; }
+    else if (arg.compare(QString("true"), Qt::CaseInsensitive) == 0) { retVal = true; }
+    else if (arg.compare(QString("false"), Qt::CaseInsensitive) == 0) { retVal =  false; }
+    else if (arg.compare(QString("yes"), Qt::CaseInsensitive) == 0) { retVal = true; }
+    else if (arg.compare(QString("no"), Qt::CaseInsensitive) == 0) { retVal = false; }
     else { match = false; }
 
     if (ok) { *ok = match; }

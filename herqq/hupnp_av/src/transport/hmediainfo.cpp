@@ -180,15 +180,15 @@ HMediaInfo::MediaCategory HMediaInfo::mediaCategoryFromString(
     const QString& category)
 {
     MediaCategory retVal = Undefined;
-    if (category.compare("NO_MEDIA", Qt::CaseInsensitive) == 0)
+    if (category.compare(QString("NO_MEDIA"), Qt::CaseInsensitive) == 0)
     {
         retVal = NoMedia;
     }
-    else if (category.compare("TRACK_AWARE", Qt::CaseInsensitive) == 0)
+    else if (category.compare(QString("TRACK_AWARE"), Qt::CaseInsensitive) == 0)
     {
         retVal = TrackAware;
     }
-    else if (category.compare("TRACK_UNAWARE", Qt::CaseInsensitive) == 0)
+    else if (category.compare(QString("TRACK_UNAWARE"), Qt::CaseInsensitive) == 0)
     {
         retVal = TrackUnaware;
     }

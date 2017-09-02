@@ -424,15 +424,15 @@ QVariant HUpnpDataTypes::convertToRightVariantType(
 
     case HUpnpDataTypes::boolean:
     {
-        if (value.compare("true", Qt::CaseInsensitive) == 0 ||
-            value.compare("yes", Qt::CaseInsensitive) == 0 ||
-            value.compare("1") == 0)
+        if (value.compare(QString("true"), Qt::CaseInsensitive) == 0 ||
+            value.compare(QString("yes"), Qt::CaseInsensitive) == 0 ||
+            value.compare(QString("1")) == 0)
         {
             retVal = true;
         }
-        else if (value.compare("false", Qt::CaseInsensitive) == 0 ||
-            value.compare("no", Qt::CaseInsensitive) == 0 ||
-            value.compare("0") == 0)
+        else if (value.compare(QString("false"), Qt::CaseInsensitive) == 0 ||
+            value.compare(QString("no"), Qt::CaseInsensitive) == 0 ||
+            value.compare(QString("0")) == 0)
         {
             retVal = false;
         }

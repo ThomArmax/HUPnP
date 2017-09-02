@@ -121,27 +121,27 @@ void HHttpServer::processRequest(HHttpAsyncOperation* op)
     mi->setKeepAlive(HHttpUtils::keepAlive(*hdr));
 
     QString method = hdr->method();
-    if (method.compare("GET", Qt::CaseInsensitive) == 0)
+    if (method.compare(QString("GET"), Qt::CaseInsensitive) == 0)
     {
         processGet(op->takeMessagingInfo(), *hdr);
     }
-    else if (method.compare("HEAD"), Qt::CaseInsensitive)
+    else if (method.compare(QString("HEAD")), Qt::CaseInsensitive)
     {
         processHead(op->takeMessagingInfo(), *hdr);
     }
-    else if (method.compare("POST", Qt::CaseInsensitive) == 0)
+    else if (method.compare(QString("POST"), Qt::CaseInsensitive) == 0)
     {
         processPost(op->takeMessagingInfo(), *hdr, op->dataRead());
     }
-    else if (method.compare("NOTIFY", Qt::CaseInsensitive) == 0)
+    else if (method.compare(QString("NOTIFY"), Qt::CaseInsensitive) == 0)
     {
         processNotifyMessage(op->takeMessagingInfo(), *hdr, op->dataRead());
     }
-    else if (method.compare("SUBSCRIBE", Qt::CaseInsensitive) == 0)
+    else if (method.compare(QString("SUBSCRIBE"), Qt::CaseInsensitive) == 0)
     {
         processSubscription(op->takeMessagingInfo(), *hdr);
     }
-    else if (method.compare("UNSUBSCRIBE", Qt::CaseInsensitive) == 0)
+    else if (method.compare(QString("UNSUBSCRIBE"), Qt::CaseInsensitive) == 0)
     {
         processUnsubscription(op->takeMessagingInfo(), *hdr);
     }

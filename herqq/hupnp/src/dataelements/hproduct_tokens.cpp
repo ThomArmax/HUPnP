@@ -99,7 +99,7 @@ bool HProductToken::isValidUpnpToken() const
 {
     QString vrs = version();
 
-    return (m_token.compare("upnp", Qt::CaseInsensitive) == 0) &&
+    return (m_token.compare(QString("upnp"), Qt::CaseInsensitive) == 0) &&
            (vrs.size() == 3    &&
            (vrs[0]     == '1') &&
             vrs[1]     == '.'  &&
@@ -110,7 +110,7 @@ bool HProductToken::isValidDlnaDocToken() const
 {
     QString vrs = version();
 
-    bool b = m_token.compare("DLNADOC", Qt::CaseInsensitive) == 0 &&
+    bool b = m_token.compare(QString("DLNADOC"), Qt::CaseInsensitive) == 0 &&
              vrs.size() >= 3 &&
              vrs[0] == '1' &&
              vrs[1] == '.';

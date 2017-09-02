@@ -449,7 +449,7 @@ qint32 HTransportSinkService::getStateVariables(
     foreach(QString svName, stateVarNames)
     {
         svName = svName.trimmed();
-        if (svName.compare("LastChange", Qt::CaseInsensitive) == 0 ||
+        if (svName.compare(QString("LastChange"), Qt::CaseInsensitive) == 0 ||
             svName.startsWith("A_ARG", Qt::CaseInsensitive))
         {
             return HAvTransportInfo::InvalidStateVariableList;
@@ -512,7 +512,7 @@ qint32 HTransportSinkService::setStateVariables(
 
     if (reader.readNextStartElement())
     {
-        if (reader.name().compare("stateVariableValuePairs", Qt::CaseInsensitive) != 0)
+        if (reader.name().compare(QString("stateVariableValuePairs"), Qt::CaseInsensitive) != 0)
         {
             return UpnpInvalidArgs;
         }

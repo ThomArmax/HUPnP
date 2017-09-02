@@ -749,7 +749,7 @@ bool HCdsPropertyDbPrivate::serializeSvCollectionIn(
 
     if (stateVariableReader.readNextStartElement())
     {
-        if (stateVariableReader.name().compare("stateVariableValuePairs", Qt::CaseInsensitive) != 0)
+        if (stateVariableReader.name().compare(QString("stateVariableValuePairs"), Qt::CaseInsensitive) != 0)
         {
             return false;
         }

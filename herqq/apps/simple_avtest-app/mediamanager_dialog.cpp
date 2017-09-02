@@ -306,7 +306,7 @@ void MediaManagerDialog::avTransportStateChanged(
 {
     foreach(const HAvtLastChangeInfo& info, infos)
     {
-        if (info.propertyName().compare("TransportState", Qt::CaseInsensitive) == 0)
+        if (info.propertyName().compare(QString("TransportState"), Qt::CaseInsensitive) == 0)
         {
             HTransportState state(info.value().toString());
             if (state.isValid())

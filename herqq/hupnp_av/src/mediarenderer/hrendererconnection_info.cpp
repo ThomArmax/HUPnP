@@ -1578,19 +1578,19 @@ bool HRendererConnectionInfo::hasChannelAssociated(const QString& svName)
 {
     bool retVal = false;
     QString trimmed = svName.trimmed();
-    if (trimmed.compare("Mute", Qt::CaseInsensitive) == 0)
+    if (trimmed.compare(QString("Mute"), Qt::CaseInsensitive) == 0)
     {
         retVal = true;
     }
-    else if (trimmed.compare("Volume", Qt::CaseInsensitive) == 0)
+    else if (trimmed.compare(QString("Volume"), Qt::CaseInsensitive) == 0)
     {
         retVal = true;
     }
-    else if (trimmed.compare("VolumeDB", Qt::CaseInsensitive) == 0)
+    else if (trimmed.compare(QString("VolumeDB"), Qt::CaseInsensitive) == 0)
     {
         retVal = true;
     }
-    else if (trimmed.compare("Loudness", Qt::CaseInsensitive) == 0)
+    else if (trimmed.compare(QString("Loudness"), Qt::CaseInsensitive) == 0)
     {
         retVal = true;
     }

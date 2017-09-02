@@ -94,35 +94,35 @@ HAvTransportInfo::DrmState
     HAvTransportInfo::drmStateFromString(const QString& state)
 {
     DrmState retVal = DrmState_Unknown;
-    if (state.compare("OK", Qt::CaseInsensitive) == 0)
+    if (state.compare(QString("OK"), Qt::CaseInsensitive) == 0)
     {
         retVal = DrmState_Ok;
     }
-    else if (state.compare("UNKNOWN", Qt::CaseInsensitive) == 0)
+    else if (state.compare(QString("UNKNOWN"), Qt::CaseInsensitive) == 0)
     {
         retVal = DrmState_Unknown;
     }
-    else if (state.compare("PROCESSING_CONTENT_KEY", Qt::CaseInsensitive) == 0)
+    else if (state.compare(QString("PROCESSING_CONTENT_KEY"), Qt::CaseInsensitive) == 0)
     {
         retVal = DrmState_ProcessingContentKey;
     }
-    else if (state.compare("CONTENT_KEY_FAILURE", Qt::CaseInsensitive) == 0)
+    else if (state.compare(QString("CONTENT_KEY_FAILURE"), Qt::CaseInsensitive) == 0)
     {
         retVal = DrmState_ContentKeyFailure;
     }
-    else if (state.compare("ATTEMPTING_AUTHENTICATION", Qt::CaseInsensitive) == 0)
+    else if (state.compare(QString("ATTEMPTING_AUTHENTICATION"), Qt::CaseInsensitive) == 0)
     {
         retVal = DrmState_AttemptingAuthentication;
     }
-    else if (state.compare("FAILED_AUTHENTICATION", Qt::CaseInsensitive) == 0)
+    else if (state.compare(QString("FAILED_AUTHENTICATION"), Qt::CaseInsensitive) == 0)
     {
         retVal = DrmState_FailedAuthentication;
     }
-    else if (state.compare("NOT_AUTHENTICATED", Qt::CaseInsensitive) == 0)
+    else if (state.compare(QString("NOT_AUTHENTICATED"), Qt::CaseInsensitive) == 0)
     {
         retVal = DrmState_NotAuthenticated;
     }
-    else if (state.compare("DEVICE_REVOCATION", Qt::CaseInsensitive) == 0)
+    else if (state.compare(QString("DEVICE_REVOCATION"), Qt::CaseInsensitive) == 0)
     {
         retVal = DrmState_DeviceRevocation;
     }

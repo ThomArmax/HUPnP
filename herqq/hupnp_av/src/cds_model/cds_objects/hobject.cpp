@@ -680,15 +680,15 @@ QString HObject::writeStatusToString(WriteStatus status)
 HObject::WriteStatus HObject::writeStatusFromString(const QString& status)
 {
     WriteStatus retVal = UnknownWriteStatus;
-    if (status.compare("writable", Qt::CaseInsensitive) == 0)
+    if (status.compare(QString("writable"), Qt::CaseInsensitive) == 0)
     {
         retVal = WritableWriteStatus;
     }
-    else if (status.compare("protected", Qt::CaseInsensitive) == 0)
+    else if (status.compare(QString("protected"), Qt::CaseInsensitive) == 0)
     {
         retVal = ProtectedWriteStatus;
     }
-    else if (status.compare("mixed", Qt::CaseInsensitive) == 0)
+    else if (status.compare(QString("mixed"), Qt::CaseInsensitive) == 0)
     {
         retVal = MixedWriteStatus;
     }

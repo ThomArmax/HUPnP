@@ -287,7 +287,7 @@ void HMediaBrowserPrivate::lastChangeReceived(
 
     if (reader.readNextStartElement())
     {
-        if (reader.name().compare("StateEvent", Qt::CaseInsensitive) != 0)
+        if (reader.name().compare(QString("StateEvent"), Qt::CaseInsensitive) != 0)
         {
             return;
         }

@@ -83,23 +83,23 @@ QString HRadioBand::toString(Type type)
 HRadioBand::Type HRadioBand::fromString(const QString& arg)
 {
     Type retVal = Undefined;
-    if (arg.compare("am", Qt::CaseInsensitive) == 0)
+    if (arg.compare(QString("am"), Qt::CaseInsensitive) == 0)
     {
         retVal = AM;
     }
-    else if (arg.compare("fm", Qt::CaseInsensitive) == 0)
+    else if (arg.compare(QString("fm"), Qt::CaseInsensitive) == 0)
     {
         retVal = FM;
     }
-    else if (arg.compare("shortwave", Qt::CaseInsensitive) == 0)
+    else if (arg.compare(QString("shortwave"), Qt::CaseInsensitive) == 0)
     {
         retVal = ShortWave;
     }
-    else if (arg.compare("internet", Qt::CaseInsensitive) == 0)
+    else if (arg.compare(QString("internet"), Qt::CaseInsensitive) == 0)
     {
         retVal = Internet;
     }
-    else if (arg.compare("satellite", Qt::CaseInsensitive) == 0)
+    else if (arg.compare(QString("satellite"), Qt::CaseInsensitive) == 0)
     {
         retVal = Satellite;
     }

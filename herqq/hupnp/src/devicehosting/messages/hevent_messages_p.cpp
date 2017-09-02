@@ -197,7 +197,7 @@ HSubscribeRequest::RetVal HSubscribeRequest::setContents(
 
     // this appears to be an initial subscription
 
-    if (nt.simplified().compare("upnp:event", Qt::CaseInsensitive) != 0)
+    if (nt.simplified().compare(QString("upnp:event"), Qt::CaseInsensitive) != 0)
     {
         return PreConditionFailed;
     }

@@ -198,11 +198,11 @@ HStateVariableCollection::RcsInstanceType HStateVariableCollection::fromString(
     const QString& type)
 {
     RcsInstanceType retVal = Undefined;
-    if (type.compare("pre-mix", Qt::CaseInsensitive) == 0)
+    if (type.compare(QString("pre-mix"), Qt::CaseInsensitive) == 0)
     {
         retVal = PreMix;
     }
-    else if (type.compare("post-mix", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("post-mix"), Qt::CaseInsensitive) == 0)
     {
         retVal = PostMix;
     }

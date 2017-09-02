@@ -80,11 +80,11 @@ HContentDirectoryInfo::BrowseFlag
     HContentDirectoryInfo::browseFlagFromString(const QString& arg)
 {
     BrowseFlag retVal = Undefined;
-    if (arg.compare("BrowseMetadata", Qt::CaseInsensitive) == 0)
+    if (arg.compare(QString("BrowseMetadata"), Qt::CaseInsensitive) == 0)
     {
         retVal = BrowseMetadata;
     }
-    else if (arg.compare("BrowseDirectChildren", Qt::CaseInsensitive) == 0)
+    else if (arg.compare(QString("BrowseDirectChildren"), Qt::CaseInsensitive) == 0)
     {
         retVal = BrowseDirectChildren;
     }

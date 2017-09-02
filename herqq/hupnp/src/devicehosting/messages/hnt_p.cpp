@@ -37,7 +37,7 @@ HNt::HNt(const QString& type) :
     m_typeValue(qMakePair(Type_Undefined, QString(""))),
     m_subTypeValue(qMakePair(SubType_Undefined, QString("")))
 {
-    if (type.compare("upnp:event", Qt::CaseInsensitive) == 0)
+    if (type.compare(QString("upnp:event"), Qt::CaseInsensitive) == 0)
     {
         m_typeValue.first  = Type_UpnpEvent;
         m_typeValue.second = "upnp:event";
@@ -48,13 +48,13 @@ HNt::HNt(const QString& type, const QString& subtype) :
     m_typeValue(qMakePair(Type_Undefined, QString(""))),
     m_subTypeValue(qMakePair(SubType_Undefined, QString("")))
 {
-    if (type.compare("upnp:event", Qt::CaseInsensitive) == 0)
+    if (type.compare(QString("upnp:event"), Qt::CaseInsensitive) == 0)
     {
         m_typeValue.first  = Type_UpnpEvent;
         m_typeValue.second = "upnp:event";
     }
 
-    if (subtype.compare("upnp:propchange", Qt::CaseInsensitive) == 0)
+    if (subtype.compare(QString("upnp:propchange"), Qt::CaseInsensitive) == 0)
     {
         m_subTypeValue.first  = SubType_UpnpPropChange;
         m_subTypeValue.second = "upnp:propchange";

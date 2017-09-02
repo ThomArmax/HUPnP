@@ -64,7 +64,7 @@ public:
             return;
         }
 
-        if (tmp[0].compare("urn", Qt::CaseInsensitive) != 0)
+        if (tmp[0].compare(QString("urn"), Qt::CaseInsensitive) != 0)
         {
             HLOG_WARN_NONSTD(
                 QString("Invalid service identifier [%1]").arg(arg));
@@ -72,7 +72,7 @@ public:
             return;
         }
 
-        if (tmp[1].compare("upnp-org", Qt::CaseInsensitive) != 0)
+        if (tmp[1].compare(QString("upnp-org"), Qt::CaseInsensitive) != 0)
         {
             tmp[1] = tmp[1].replace('.', '-');
             if (tmp[1].isEmpty())
@@ -85,7 +85,7 @@ public:
         }
 
         bool warned = false;
-        if (tmp[2].compare("serviceId", Qt::CaseInsensitive) != 0)
+        if (tmp[2].compare(QString("serviceId"), Qt::CaseInsensitive) != 0)
         {
             HLOG_WARN_NONSTD(QString("Invalid service identifier [%1]").arg(arg));
             warned = true;

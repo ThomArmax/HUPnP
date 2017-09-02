@@ -64,10 +64,10 @@ public:
         QString connection = hdr.value("CONNECTION");
         if (hdr.minorVersion() == 1)
         {
-            return connection.compare("close", Qt::CaseInsensitive) != 0;
+            return connection.compare(QString("close"), Qt::CaseInsensitive) != 0;
         }
 
-        return connection.compare("Keep-Alive", Qt::CaseInsensitive) == 0;
+        return connection.compare(QString("Keep-Alive"), Qt::CaseInsensitive) == 0;
     }
 
     // returns the URLs as a string inside brackets. This is the format used in

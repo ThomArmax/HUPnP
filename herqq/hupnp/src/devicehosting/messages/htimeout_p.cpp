@@ -43,7 +43,7 @@ HTimeout::HTimeout(const QString& timeout) :
     m_value(-1)
 {
     QString tmp(timeout.simplified());
-    if (tmp.compare("infinite", Qt::CaseInsensitive) != 0)
+    if (tmp.compare(QString("infinite"), Qt::CaseInsensitive) != 0)
     {
         if (tmp.startsWith("Second-", Qt::CaseInsensitive))
         {

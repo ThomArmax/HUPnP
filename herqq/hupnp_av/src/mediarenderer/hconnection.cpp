@@ -144,7 +144,7 @@ void HConnection::lastChangeReceived(
 
     if (reader.readNextStartElement())
     {
-        if (reader.name().compare("Event", Qt::CaseInsensitive) != 0)
+        if (reader.name().compare(QString("Event"), Qt::CaseInsensitive) != 0)
         {
             return;
         }
@@ -159,7 +159,7 @@ void HConnection::lastChangeReceived(
     {
         QStringRef name = reader.name();
 
-        if (name.compare("InstanceID", Qt::CaseInsensitive))
+        if (name.compare(QString("InstanceID"), Qt::CaseInsensitive))
         {
             continue;
         }
@@ -205,7 +205,7 @@ void HConnection::lastChangeReceived(HAvTransportAdapter*, const QString& data)
 
     if (reader.readNextStartElement())
     {
-        if (reader.name().compare("Event", Qt::CaseInsensitive) != 0)
+        if (reader.name().compare(QString("Event"), Qt::CaseInsensitive) != 0)
         {
             return;
         }
@@ -220,7 +220,7 @@ void HConnection::lastChangeReceived(HAvTransportAdapter*, const QString& data)
     {
         QStringRef name = reader.name();
 
-        if (name.compare("InstanceID", Qt::CaseInsensitive))
+        if (name.compare(QString("InstanceID"), Qt::CaseInsensitive))
         {
             continue;
         }
