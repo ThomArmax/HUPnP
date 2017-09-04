@@ -1,5 +1,21 @@
 # HUPnP Changelog
 
+HUPnP 2.0.0 [Jul. 27, 2012]
+--------------------------------------------------------------------------------
+**Breaking changes to HUPnP and HUPnPAv APIs**
+
+Changed the version of HUPnP to 2.0 and the version of HUPnPAv to 0.0.2.
+
+- Breaking changes to HUPnP were done to HProductTokens and HProductToken classes. It's likely that code relying on these classes require changes. In addition, the classes now support the DLNADOC token.
+- Fixed a few content-type -related bugs in HUPnP's HTTP components.
+- Modified the HTTP server to include "SERVER" header on the responses it sends.
+- Some other minor issues not worth mentioning individually.
+
+- Breaking changes to HUPnPAv were done to HMediaServerDeviceConfiguration.
+- Added some additional sort capabilities to the content directory.
+- Added a configuration class for media server's connection manager. Currently, the class provides the possibility of specifying the supported "ProtocolInfo" of a media server (see ConnectionManager spec. for more information).
+- Modified the default ProtocolInfo of a media server's connection manager to detail a large number of MIME types and DLNA profiles. Previously it simply stated: "everything is supported".
+
 HUPnP 1.0.0 [Mar. 28, 2011]
 --------------------------------------------------------------------------------
 - Added support for adding a new root device into HDeviceHost instance after 
@@ -120,7 +136,7 @@ SimpleTestApp's HTestDevice to fail, as the required description documents could
 - Updated documentation.
 
 Special thanks to Jukka Kinnunen <kinnujuk@gmail.com> and 
-Jo„o Xavier <smogzer@gmail.com> for reporting their findings to me.
+Jo√£o Xavier <smogzer@gmail.com> for reporting their findings to me.
 Much appreciated. 
 
 HUPnP 0.7.0 [Oct 6, 2010]
