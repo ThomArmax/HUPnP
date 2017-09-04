@@ -568,7 +568,7 @@ bool HCdsDidlLiteSerializer::serializeFromXml(
         addNamespaces(reader);
         if (reader.readNextStartElement())
         {
-            if (reader.name().compare("DIDL-Lite", Qt::CaseInsensitive) != 0)
+            if (reader.name().compare(QString("DIDL-Lite"), Qt::CaseInsensitive) != 0)
             {
                 h_ptr->m_lastErrorDescription = "Missing mandatory DIDL-Lite element";
                 return false;

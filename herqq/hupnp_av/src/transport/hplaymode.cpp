@@ -87,31 +87,31 @@ QString HPlayMode::toString(HPlayMode::Type type)
 HPlayMode::Type HPlayMode::fromString(const QString& type)
 {
     Type retVal = Undefined;
-    if (type.compare("NORMAL", Qt::CaseInsensitive) == 0)
+    if (type.compare(QString("NORMAL"), Qt::CaseInsensitive) == 0)
     {
         retVal = Normal;
     }
-    else if (type.compare("SHUFFLE", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("SHUFFLE"), Qt::CaseInsensitive) == 0)
     {
         retVal = Shuffle;
     }
-    else if (type.compare("REPEAT_ONE", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("REPEAT_ONE"), Qt::CaseInsensitive) == 0)
     {
         retVal = RepeatOne;
     }
-    else if (type.compare("REPEAT_ALL", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("REPEAT_ALL"), Qt::CaseInsensitive) == 0)
     {
         retVal = RepeatAll;
     }
-    else if (type.compare("RANDOM", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("RANDOM"), Qt::CaseInsensitive) == 0)
     {
         retVal = Random;
     }
-    else if (type.compare("DIRECT_1", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("DIRECT_1"), Qt::CaseInsensitive) == 0)
     {
         retVal = Direct_1;
     }
-    else if (type.compare("INTRO", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("INTRO"), Qt::CaseInsensitive) == 0)
     {
         retVal = Intro;
     }

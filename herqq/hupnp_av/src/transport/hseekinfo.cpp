@@ -102,43 +102,43 @@ QString HSeekMode::toString(Type type)
 HSeekMode::Type HSeekMode::fromString(const QString& type)
 {
     Type retVal = Unknown;
-    if (type.compare("TRACK_NR", Qt::CaseInsensitive) == 0)
+    if (type.compare(QString("TRACK_NR"), Qt::CaseInsensitive) == 0)
     {
         retVal = TrackNr;
     }
-    else if (type.compare("ABS_TIME", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("ABS_TIME"), Qt::CaseInsensitive) == 0)
     {
         retVal = AbsTime;
     }
-    else if (type.compare("REL_TIME", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("REL_TIME"), Qt::CaseInsensitive) == 0)
     {
         retVal = RelTime;
     }
-    else if (type.compare("ABS_COUNT", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("ABS_COUNT"), Qt::CaseInsensitive) == 0)
     {
         retVal = AbsCount;
     }
-    else if (type.compare("REL_COUNT", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("REL_COUNT"), Qt::CaseInsensitive) == 0)
     {
         retVal = RelCount;
     }
-    else if (type.compare("CHANNEL_FREQ", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("CHANNEL_FREQ"), Qt::CaseInsensitive) == 0)
     {
         retVal = ChannelFreq;
     }
-    else if (type.compare("TAPE-INDEX", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("TAPE-INDEX"), Qt::CaseInsensitive) == 0)
     {
         retVal = TapeIndex;
     }
-    else if (type.compare("REL_TAPE-INDEX", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("REL_TAPE-INDEX"), Qt::CaseInsensitive) == 0)
     {
         retVal = RelTapeIndex;
     }
-    else if (type.compare("FRAME", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("FRAME"), Qt::CaseInsensitive) == 0)
     {
         retVal = Frame;
     }
-    else if (type.compare("REL_FRAME", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("REL_FRAME"), Qt::CaseInsensitive) == 0)
     {
         retVal = RelFrame;
     }

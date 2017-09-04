@@ -56,7 +56,7 @@ HResourceType::HResourceType(const QString& resourceTypeAsStr) :
     {
         return;
     }
-    if (tmp[1].compare("schemas-upnp-org") != 0)
+    if (tmp[1].compare(QString("schemas-upnp-org")) != 0)
     {
         flags = 0x01;
         tmp[1] = tmp[1].replace('.', '-');
@@ -67,11 +67,11 @@ HResourceType::HResourceType(const QString& resourceTypeAsStr) :
     }
 
     tmp[2] = tmp[2].simplified();
-    if (tmp[2].compare("device") == 0)
+    if (tmp[2].compare(QString("device")) == 0)
     {
         flags |= 0x04;
     }
-    else if (tmp[2].compare("service") == 0)
+    else if (tmp[2].compare(QString("service")) == 0)
     {
         flags |= 0x08;
     }

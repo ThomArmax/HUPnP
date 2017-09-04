@@ -110,59 +110,59 @@ QString HChannel::toString(Type type)
 HChannel::Type HChannel::fromString(const QString& type)
 {
     Type retVal = Undefined;
-    if (type.compare("MASTER", Qt::CaseInsensitive) == 0)
+    if (type.compare(QString("MASTER"), Qt::CaseInsensitive) == 0)
     {
         retVal = Master;
     }
-    else if (type.compare("LF", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("LF"), Qt::CaseInsensitive) == 0)
     {
         retVal = LeftFront;
     }
-    else if (type.compare("RF", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("RF"), Qt::CaseInsensitive) == 0)
     {
         retVal = RightFront;
     }
-    else if (type.compare("CF", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("CF"), Qt::CaseInsensitive) == 0)
     {
         retVal = CenterFront;
     }
-    else if (type.compare("LFE", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("LFE"), Qt::CaseInsensitive) == 0)
     {
         retVal = LFE;
     }
-    else if (type.compare("LS", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("LS"), Qt::CaseInsensitive) == 0)
     {
         retVal = LeftSurround;
     }
-    else if (type.compare("RS", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("RS"), Qt::CaseInsensitive) == 0)
     {
         retVal = RightSurround;
     }
-    else if (type.compare("LFC", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("LFC"), Qt::CaseInsensitive) == 0)
     {
         retVal = LeftOfCenter;
     }
-    else if (type.compare("RFC", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("RFC"), Qt::CaseInsensitive) == 0)
     {
         retVal = RightOfCenter;
     }
-    else if (type.compare("SD", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("SD"), Qt::CaseInsensitive) == 0)
     {
         retVal = Surround;
     }
-    else if (type.compare("SL", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("SL"), Qt::CaseInsensitive) == 0)
     {
         retVal = SideLeft;
     }
-    else if (type.compare("SR", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("SR"), Qt::CaseInsensitive) == 0)
     {
         retVal = SideRight;
     }
-    else if (type.compare("T", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("T"), Qt::CaseInsensitive) == 0)
     {
         retVal = Top;
     }
-    else if (type.compare("B", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("B"), Qt::CaseInsensitive) == 0)
     {
         retVal = Bottom;
     }

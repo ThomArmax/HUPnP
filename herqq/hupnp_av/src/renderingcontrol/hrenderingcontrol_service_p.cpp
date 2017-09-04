@@ -859,7 +859,7 @@ qint32 HRenderingControlService::setStateVariables(
 
     if (reader.readNextStartElement())
     {
-        if (reader.name().compare("stateVariableValuePairs", Qt::CaseInsensitive) != 0)
+        if (reader.name().compare(QString("stateVariableValuePairs"), Qt::CaseInsensitive) != 0)
         {
             return UpnpInvalidArgs;
         }

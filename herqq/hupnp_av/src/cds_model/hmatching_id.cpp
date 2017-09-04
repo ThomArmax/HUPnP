@@ -77,11 +77,11 @@ QString HMatchingId::toString(Type type)
 HMatchingId::Type HMatchingId::fromString(const QString& type)
 {
     Type retVal = Undefined;
-    if (type.compare("SI_SERIESID", Qt::CaseInsensitive) == 0)
+    if (type.compare(QString("SI_SERIESID"), Qt::CaseInsensitive) == 0)
     {
         retVal = SeriesId;
     }
-    else if (type.compare("SI_PROGRAMID", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("SI_PROGRAMID"), Qt::CaseInsensitive) == 0)
     {
         retVal = ProgramId;
     }

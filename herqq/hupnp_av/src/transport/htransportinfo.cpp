@@ -71,11 +71,11 @@ QString HTransportStatus::toString(HTransportStatus::Type type)
 HTransportStatus::Type HTransportStatus::fromString(const QString& type)
 {
     Type retVal = Undefined;
-    if (type.compare("OK", Qt::CaseInsensitive) == 0)
+    if (type.compare(QString("OK"), Qt::CaseInsensitive) == 0)
     {
         retVal = OK;
     }
-    else if (type.compare("ERROR_OCCURRED", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("ERROR_OCCURRED"), Qt::CaseInsensitive) == 0)
     {
         retVal = ErrorOccurred;
     }

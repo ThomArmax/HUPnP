@@ -91,31 +91,31 @@ QString HTransportAction::toString(Type type)
 HTransportAction::Type HTransportAction::fromString(const QString& type)
 {
     Type retVal = Undefined;
-    if (type.compare("PLAY", Qt::CaseInsensitive) == 0)
+    if (type.compare(QString("PLAY"), Qt::CaseInsensitive) == 0)
     {
         retVal = Play;
     }
-    else if (type.compare("STOP", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("STOP"), Qt::CaseInsensitive) == 0)
     {
         retVal = Stop;
     }
-    else if (type.compare("PAUSE", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("PAUSE"), Qt::CaseInsensitive) == 0)
     {
         retVal = Pause;
     }
-    else if (type.compare("SEEK", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("SEEK"), Qt::CaseInsensitive) == 0)
     {
         retVal = Seek;
     }
-    else if (type.compare("NEXT", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("NEXT"), Qt::CaseInsensitive) == 0)
     {
         retVal = Next;
     }
-    else if (type.compare("PREVIOUS", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("PREVIOUS"), Qt::CaseInsensitive) == 0)
     {
         retVal = Previous;
     }
-    else if (type.compare("RECORD", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("RECORD"), Qt::CaseInsensitive) == 0)
     {
         retVal = Record;
     }

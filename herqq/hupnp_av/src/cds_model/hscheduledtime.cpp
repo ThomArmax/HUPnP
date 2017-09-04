@@ -108,11 +108,11 @@ QString HScheduledTime::toString(Type type)
 HScheduledTime::Type HScheduledTime::fromString(const QString& type)
 {
     Type retVal = Undefined;
-    if (type.compare("SCHEDULED_PROGRAM", Qt::CaseInsensitive) == 0)
+    if (type.compare(QString("SCHEDULED_PROGRAM"), Qt::CaseInsensitive) == 0)
     {
         retVal = ScheduledProgram;
     }
-    else if (type.compare("ON_DEMAND", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("ON_DEMAND"), Qt::CaseInsensitive) == 0)
     {
         retVal = OnDemand;
     }

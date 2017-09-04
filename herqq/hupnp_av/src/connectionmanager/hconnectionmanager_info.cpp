@@ -57,11 +57,11 @@ HConnectionManagerInfo::Direction
     HConnectionManagerInfo::directionFromString(const QString& arg)
 {
     Direction retVal = DirectionUndefined;
-    if (arg.compare("Input", Qt::CaseInsensitive) == 0)
+    if (arg.compare(QString("Input"), Qt::CaseInsensitive) == 0)
     {
         retVal = DirectionInput;
     }
-    else if (arg.compare("Output", Qt::CaseInsensitive) == 0)
+    else if (arg.compare(QString("Output"), Qt::CaseInsensitive) == 0)
     {
         retVal = DirectionOutput;
     }
@@ -92,23 +92,23 @@ HConnectionManagerInfo::ConnectionStatus
     HConnectionManagerInfo::statusFromString(const QString& arg)
 {
     ConnectionStatus retVal = StatusUnknown;
-    if (arg.compare("Ok", Qt::CaseInsensitive) == 0)
+    if (arg.compare(QString("Ok"), Qt::CaseInsensitive) == 0)
     {
         retVal = StatusOk;
     }
-    else if (arg.compare("Unknown", Qt::CaseInsensitive) == 0)
+    else if (arg.compare(QString("Unknown"), Qt::CaseInsensitive) == 0)
     {
         retVal = StatusUnknown;
     }
-    else if (arg.compare("ContentFormatMismatch", Qt::CaseInsensitive) == 0)
+    else if (arg.compare(QString("ContentFormatMismatch"), Qt::CaseInsensitive) == 0)
     {
         retVal = StatusContentFormatMismatch;
     }
-    else if (arg.compare("InsufficientBandwidth", Qt::CaseInsensitive) == 0)
+    else if (arg.compare(QString("InsufficientBandwidth"), Qt::CaseInsensitive) == 0)
     {
         retVal = StatusInsufficientBandwidth;
     }
-    else if (arg.compare("UnreliableChannel", Qt::CaseInsensitive) == 0)
+    else if (arg.compare(QString("UnreliableChannel"), Qt::CaseInsensitive) == 0)
     {
         retVal = StatusUnreliableChannel;
     }

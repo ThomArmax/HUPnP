@@ -195,7 +195,7 @@ bool HDocParser::parseActionArguments(
         }
 
         HActionArgument createdArg;
-        if (dirStr.compare("out", Qt::CaseInsensitive) == 0)
+        if (dirStr.compare(QString("out"), Qt::CaseInsensitive) == 0)
         {
             if (retValWasDefined)
             {
@@ -228,7 +228,7 @@ bool HDocParser::parseActionArguments(
 
             outArgs->push_back(createdArg);
         }
-        else if (dirStr.compare("in", Qt::CaseInsensitive) == 0)
+        else if (dirStr.compare(QString("in"), Qt::CaseInsensitive) == 0)
         {
             if (firstOutArgFound)
             {
@@ -677,11 +677,11 @@ bool HDocParser::parseStateVariable(
 
     QString strSendEvents = stateVariableElement.attribute("sendEvents", "no");
     bool bSendEvents      = false;
-    if (strSendEvents.compare("yes", Qt::CaseInsensitive) == 0)
+    if (strSendEvents.compare(QString("yes"), Qt::CaseInsensitive) == 0)
     {
         bSendEvents = true;
     }
-    else if (strSendEvents.compare("no", Qt::CaseInsensitive) != 0)
+    else if (strSendEvents.compare(QString("no"), Qt::CaseInsensitive) != 0)
     {
         m_lastError = InvalidServiceDescriptionError;
         m_lastErrorDescription = QString(
@@ -694,11 +694,11 @@ bool HDocParser::parseStateVariable(
 
     QString strMulticast  = stateVariableElement.attribute("multicast", "no");
     bool bMulticast       = false;
-    if (strMulticast.compare("yes", Qt::CaseInsensitive) == 0)
+    if (strMulticast.compare(QString("yes"), Qt::CaseInsensitive) == 0)
     {
         bMulticast = true;
     }
-    else if (strMulticast.compare("no", Qt::CaseInsensitive) != 0)
+    else if (strMulticast.compare(QString("no"), Qt::CaseInsensitive) != 0)
     {
         m_lastError = InvalidServiceDescriptionError;
         m_lastErrorDescription = QString(

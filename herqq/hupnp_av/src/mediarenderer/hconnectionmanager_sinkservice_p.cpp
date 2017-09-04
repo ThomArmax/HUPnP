@@ -109,7 +109,7 @@ qint32 HConnectionManagerSinkService::prepareForConnection(
         return HConnectionManagerInfo::IncompatibleDirections;
     }
 
-    if (remoteProtocolInfo.protocol().compare("http-get", Qt::CaseInsensitive) &&
+    if (remoteProtocolInfo.protocol().compare(QString("http-get"), Qt::CaseInsensitive) &&
         remoteProtocolInfo.protocol() != "*")
     {
         return HConnectionManagerInfo::IncompatibleProtocolInfo;

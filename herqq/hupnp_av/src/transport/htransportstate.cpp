@@ -89,31 +89,31 @@ QString HTransportState::toString(HTransportState::Type type)
 HTransportState::Type HTransportState::fromString(const QString& type)
 {
     Type retVal = Undefined;
-    if (type.compare("NO_MEDIA_PRESENT", Qt::CaseInsensitive) == 0)
+    if (type.compare(QString("NO_MEDIA_PRESENT"), Qt::CaseInsensitive) == 0)
     {
         retVal = NoMediaPresent;
     }
-    else if (type.compare("STOPPED", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("STOPPED"), Qt::CaseInsensitive) == 0)
     {
         retVal = Stopped;
     }
-    else if (type.compare("PLAYING", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("PLAYING"), Qt::CaseInsensitive) == 0)
     {
         retVal = Playing;
     }
-    else if (type.compare("TRANSITIONING", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("TRANSITIONING"), Qt::CaseInsensitive) == 0)
     {
         retVal = Transitioning;
     }
-    else if (type.compare("PAUSED_PLAYBACK", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("PAUSED_PLAYBACK"), Qt::CaseInsensitive) == 0)
     {
         retVal = PausedPlayback;
     }
-    else if (type.compare("PAUSED_RECORDING", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("PAUSED_RECORDING"), Qt::CaseInsensitive) == 0)
     {
         retVal = PausedRecording;
     }
-    else if (type.compare("RECORDING", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("RECORDING"), Qt::CaseInsensitive) == 0)
     {
         retVal = Recording;
     }

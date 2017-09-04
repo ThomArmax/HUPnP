@@ -88,31 +88,31 @@ QString HRecordQualityMode::toString(Type mode)
 HRecordQualityMode::Type HRecordQualityMode::fromString(const QString& mode)
 {
     Type retVal = Undefined;
-    if (mode.compare("0:EP", Qt::CaseInsensitive) == 0)
+    if (mode.compare(QString("0:EP"), Qt::CaseInsensitive) == 0)
     {
         retVal = Ep;
     }
-    else if (mode.compare("1:LP", Qt::CaseInsensitive) == 0)
+    else if (mode.compare(QString("1:LP"), Qt::CaseInsensitive) == 0)
     {
         retVal = Lp;
     }
-    else if (mode.compare("2:SP", Qt::CaseInsensitive) == 0)
+    else if (mode.compare(QString("2:SP"), Qt::CaseInsensitive) == 0)
     {
         retVal = Sp;
     }
-    else if (mode.compare("0:BASIC", Qt::CaseInsensitive) == 0)
+    else if (mode.compare(QString("0:BASIC"), Qt::CaseInsensitive) == 0)
     {
         retVal = Basic;
     }
-    else if (mode.compare("1:MEDIUM", Qt::CaseInsensitive) == 0)
+    else if (mode.compare(QString("1:MEDIUM"), Qt::CaseInsensitive) == 0)
     {
         retVal = Medium;
     }
-    else if (mode.compare("2:HIGH", Qt::CaseInsensitive) == 0)
+    else if (mode.compare(QString("2:HIGH"), Qt::CaseInsensitive) == 0)
     {
         retVal = High;
     }
-    else if (mode.compare("NOT_IMPLEMENTED", Qt::CaseInsensitive) == 0)
+    else if (mode.compare(QString("NOT_IMPLEMENTED"), Qt::CaseInsensitive) == 0)
     {
         retVal = NotImplemented;
     }

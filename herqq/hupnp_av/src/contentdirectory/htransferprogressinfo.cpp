@@ -85,15 +85,15 @@ HTransferProgressInfo::~HTransferProgressInfo()
 HTransferProgressInfo::Status HTransferProgressInfo::fromString(const QString& arg)
 {
     Status retVal = Error;
-    if (arg.compare("IN_PROGRESS", Qt::CaseInsensitive) == 0)
+    if (arg.compare(QString("IN_PROGRESS"), Qt::CaseInsensitive) == 0)
     {
         retVal = InProgress;
     }
-    else if (arg.compare("STOPPED", Qt::CaseInsensitive) == 0)
+    else if (arg.compare(QString("STOPPED"), Qt::CaseInsensitive) == 0)
     {
         retVal = Stopped;
     }
-    else if (arg.compare("COMPLETED", Qt::CaseInsensitive) == 0)
+    else if (arg.compare(QString("COMPLETED"), Qt::CaseInsensitive) == 0)
     {
         retVal = Completed;
     }

@@ -115,19 +115,19 @@ QString HSortModifier::toString(Type type)
 HSortModifier::Type HSortModifier::fromString(const QString& type)
 {
     Type retVal = Undefined;
-    if (type.compare("+", Qt::CaseInsensitive) == 0)
+    if (type.compare(QString("+"), Qt::CaseInsensitive) == 0)
     {
         retVal = AscendingByValue;
     }
-    else if (type.compare("-", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("-"), Qt::CaseInsensitive) == 0)
     {
         retVal = DescendingByValue;
     }
-    else if (type.compare("TIME+", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("TIME+"), Qt::CaseInsensitive) == 0)
     {
         retVal = AscendingByTime;
     }
-    else if (type.compare("TIME-", Qt::CaseInsensitive) == 0)
+    else if (type.compare(QString("TIME-"), Qt::CaseInsensitive) == 0)
     {
         retVal = DescendingByTime;
     }
