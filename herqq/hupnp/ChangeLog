@@ -1,5 +1,15 @@
 # HUPnP Changelog
 
+HUPnP 2.1.0 [Sept. 5, 2017]
+--------------------------------------------------------------------------------
+- HUPnP port to Qt5
+- Fix some compilation warnings
+- Fix #1: Don't use PREFIX variable for INCLUDEPATH and LIBS vars
+- Fix #2: Private headers removed from INSTALLS variable
+- Fix #3: QtSOAP link and naming issues
+- Close #5: Add HCdsProperties to HObject
+- casting chars to QString in compare functions
+
 HUPnP 2.0.0 [Jul. 27, 2012]
 --------------------------------------------------------------------------------
 **Breaking changes to HUPnP and HUPnPAv APIs**

@@ -6,7 +6,7 @@ QT      += network xml
 QT      -= gui
 CONFIG  += warn_on dll thread
 DEFINES += H_BUILD_UPNP_CORE_LIB
-VERSION = 2.0.0
+VERSION = 2.1.0
 
 exists(options.pri) {
     include(options.pri)
