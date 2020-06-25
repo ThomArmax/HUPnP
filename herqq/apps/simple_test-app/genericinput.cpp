@@ -23,6 +23,8 @@
 #include "genericinput.h"
 #include "ui_genericinput.h"
 
+#include <QValidator>
+
 GenericInput::GenericInput(QValidator* inputValidator, QWidget* parent) :
     IDataHolder(parent),
         m_ui(new Ui::GenericInput), m_inputValidator(inputValidator)
