@@ -7,13 +7,13 @@ All about the original project can be found here : http://hupnp.linada.fi/
 
 ********************
 
-##HUPnP
+## HUPnP
 
 Herqq UPnP (HUPnP) is a software library for building UPnP devices and control points conforming to the UPnP Device Architecture version 1.1. It is designed to be simple to use and robust in operation. It is built using C++ and the Qt Framework following many of the design principles and programming practices used in the Qt Framework. It integrates into Qt-based software smoothly and enables truly rapid UPnP development.
 
 HUPnP is the result of careful interface design and test-driven development. The interface is simple, yet powerful. It is easy to get started with HUPnP and it enables you to build and interact with any type of UPnP device. If you're interested in trying it out, please download the latest version and check the documentation for more information how to get started.
 
-##Goals
+## Goals
 
 Simplicity & Usability. Above everything else, HUPnP is designed to make almost any type of UPnP development simple. HUPnP is nothing but a comprehensive and documented class library that is built for re-use and extension. Each class is designed for a purpose, which function is encapsulated behind an intuitive interface. Simplicity applied to usability has been leading the HUPnP development and it will continue to do so in the future.
 
@@ -21,7 +21,7 @@ Conformance. All the power and potential of UPnP technology relies on standards 
 
 Cross-platform. UPnP is about platform, media and device independence. Similarly, the tools and libraries used to build UPnP software should be at least platform independent. One of the main reasons HUPnP is tightly integrated into the Qt Framework is that Qt is time-proven cross-platform technology that provides solid platform abstraction. In addition, it is one of the leading cross-platform GUI tookits that has been used worldwide in numerous successful software projects.
 
-##HUPnPAv
+## HUPnPAv
 
 Herqq UPnP A/V (HUPnPAv) is a software library for building UPnP A/V devices and control points conforming to the UPnP A/V specifications available at the UPnP Forum. It is built directly above the HUPnP core library and as such it follows the same design principles and programming practises and shares the same general goals.
 
